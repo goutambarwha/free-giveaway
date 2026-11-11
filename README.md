@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# GiftRound
 
-## Getting Started
+Free product giveaway site (Android + Windows browsers).
 
-First, run the development server:
+- Free signup / login
+- Free entry (no payment)
+- Public participant list for logged-in users
+- 30-day countdown
+- Random winner announced when the round ends
+
+## Run locally
 
 ```bash
+cd free-giveaway
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Local data is stored in `data/store.json`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Deploy (GitHub + Vercel)
 
-## Learn More
+1. Push this repo to GitHub.
+2. Import the project in [Vercel](https://vercel.com).
+3. Add environment variables:
+   - `AUTH_SECRET` — long random string (32+ chars)
+   - `BLOB_READ_WRITE_TOKEN` — from a Vercel Blob store linked to the project
+4. Deploy.
 
-To learn more about Next.js, take a look at the following resources:
+On Vercel, data is stored in **Vercel Blob** (not the local JSON file).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Configure prize
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Edit `data/store.json` locally (or the stored blob in production after first write):
 
-## Deploy on Vercel
+- `giveaway.prizeName`
+- `giveaway.prizeDescription`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Round dates are created automatically on first use (`startsAt` / `endsAt` = 30 days).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Notes
+
+- This is a free giveaway demo, not a paid lottery.
+- Follow local laws for promotions and giveaways in your region.

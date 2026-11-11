@@ -1,0 +1,14 @@
+{
+  "users": [],
+  "entries": [],
+  "giveaway": {
+    "id": "round-1",
+    "title": "GiftRound",
+    "prizeName": "Noise-Cancelling Headphones",
+    "prizeDescription": "One randomly selected entrant wins the product after the free 30-day round ends.",
+    "startsAt": null,
+    "endsAt": null,
+    "winnerUserId": null,
+    "announcedAt": null
+  }
+}
